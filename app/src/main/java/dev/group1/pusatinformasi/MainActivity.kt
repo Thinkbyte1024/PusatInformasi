@@ -13,7 +13,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import dev.group1.pusatinformasi.ui.theme.PusatInformasiTheme
+import dev.group1.pusatinformasi.views.LoginView
+import dev.group1.pusatinformasi.views.RegisterView
+import dev.group1.pusatinformasi.views.ViewRoutes
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Homepage()
+                    MainNavigation()
                 }
             }
         }
@@ -32,7 +39,24 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Homepage() {
+fun MainNavigation() {
+    val navController = rememberNavController()
+
+    NavHost(navController = navController, startDestination = ViewRoutes.HomePage.route) {
+        composable(route = ViewRoutes.HomePage.route) {
+            Homepage(navController)
+        }
+        composable(route = ViewRoutes.LoginPage.route) {
+            LoginView(navController = navController)
+        }
+        composable(route = ViewRoutes.RegisterPage.route) {
+            RegisterView(navController = navController)
+        }
+    }
+}
+
+@Composable
+fun Homepage(navController: NavController) {
     Scaffold(
         topBar = {
             Row(
@@ -47,7 +71,7 @@ fun Homepage() {
                     modifier = Modifier.padding(horizontal = 8.dp)
                 )
                 TextButton(modifier = Modifier.padding(8.dp), onClick = {
-
+                    navController.navigate(ViewRoutes.LoginPage.route)
                 }) {
                     Text(
                         "Login",
@@ -66,7 +90,7 @@ fun Homepage() {
 
         }
     ) {
-
+        // TODO: Buat daftar halaman berita
     }
 }
 
@@ -74,6 +98,7 @@ fun Homepage() {
 @Composable
 fun DefaultPreview() {
     PusatInformasiTheme {
-        Homepage()
+        val navController = rememberNavController()
+        Homepage(navController)
     }
 }

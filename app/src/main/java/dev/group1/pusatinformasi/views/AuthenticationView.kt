@@ -10,9 +10,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
+// Halaman Login
 @Composable
-fun LoginView() {
+fun LoginView(navController: NavController) {
     var usernameInput by remember {
         mutableStateOf("")
     }
@@ -53,15 +56,18 @@ fun LoginView() {
         }
 
         TextButton(onClick = {
-            // TODO: Arahkan ke halaman "Daftar"
+            navController.navigate(ViewRoutes.RegisterPage.route)
         }) {
             Text(text = "Daftar")
         }
     }
 }
 
+// Halaman Register
 @Composable
-fun RegisterView() {
+fun RegisterView(navController: NavController) {
+
+    // Variabel input
     var usernameInput by remember {
         mutableStateOf("")
     }
@@ -77,6 +83,7 @@ fun RegisterView() {
         mutableStateOf("")
     }
 
+    // Desain UI
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -130,14 +137,14 @@ fun RegisterView() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun Login_Preview() {
-    LoginView()
+    LoginView(rememberNavController())
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun Register_View() {
-    RegisterView()
+    RegisterView(rememberNavController())
 }
