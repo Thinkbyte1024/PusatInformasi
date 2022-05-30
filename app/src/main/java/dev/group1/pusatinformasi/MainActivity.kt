@@ -17,10 +17,16 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import dev.group1.pusatinformasi.network.config.NetConfig
 import dev.group1.pusatinformasi.ui.theme.PusatInformasiTheme
 import dev.group1.pusatinformasi.views.LoginView
 import dev.group1.pusatinformasi.views.RegisterView
 import dev.group1.pusatinformasi.views.ViewRoutes
+
+// Membuat klien HTTP saat aplikasi dijalankan
+val netService by lazy {
+    NetConfig.create()
+}
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +44,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+// ================================================================================================
+// Navigasi utama
+// ================================================================================================
+
 @Composable
 fun MainNavigation() {
     val navController = rememberNavController()
@@ -54,6 +64,10 @@ fun MainNavigation() {
         }
     }
 }
+
+// ================================================================================================
+// Halaman utama
+// ================================================================================================
 
 @Composable
 fun Homepage(navController: NavController) {
@@ -93,6 +107,10 @@ fun Homepage(navController: NavController) {
         // TODO: Buat daftar halaman berita
     }
 }
+
+// ================================================================================================
+// Jetpack Compose preview
+// ================================================================================================
 
 @Preview(showBackground = true)
 @Composable
