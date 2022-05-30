@@ -1,5 +1,7 @@
 # PusatInformasi
-Sebuah aplikasi CMS berbasis Android sederhana yang dapat mengambil dan membuat berita menggunakan API. (Aplikasi ini masih dalam pembuatan)
+Sebuah aplikasi CMS berbasis Android sederhana dari Jetpack Compose yang dapat mengambil dan membuat berita menggunakan API. (Aplikasi ini masih dalam pembuatan)<br><br>
+Kunjungi [link](https://developer.android.com/jetpack/compose) ini untuk mempelajari mengenai Jetpack Compose.<br>
+Dan kunjungi [link](https://developer.android.com/jetpack/compose/mental-model) ini untuk mengetahui cara berpikir dengan Jetpack Compose.
 
 ## API
 API yang digunakan pada aplikasi ini dapat diakses oleh link ini.
