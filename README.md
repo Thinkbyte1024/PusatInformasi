@@ -1,14 +1,15 @@
-# Arsitektur Project
-![Capture](https://user-images.githubusercontent.com/61740978/170324122-d59f50a0-79fa-4f6b-af6a-32dd4865476f.PNG)
+# PusatInformasi
+Sebuah aplikasi CMS berbasis Android sederhana yang dapat mengambil dan membuat berita menggunakan API. (Aplikasi ini masih dalam pembuatan)
 
-# Documentation API 
-https://github.com/ardhikarestuyoviyanto/mobile-api-laravel.git 
+## API
+API yang digunakan pada aplikasi ini dapat diakses oleh link ini.
+https://github.com/ardhikarestuyoviyanto/mobile-api-laravel.git (API oleh Ardhika Restu Yoviyanto dan kontributor lainnya)
 
-# To-do
-- Register and Login (done)
-- Crud News for Signed User 
-- Read News Anonim User
-- List News Anonim User
-- Comment News Anonim User
-- Like News Anonim User
-- Get News By Kategori Anonim User
+## To-do
+- Register and Login [76% Done]
+- CRUD Berita untuk pengguna terdaftar 
+- Membaca berita melalui pengguna anonim
+- Daftar berita melalui pengguna anonim
+- Komentar berita oleh pengguna anonim
+- Menyukai berita oleh pengguna anonim
+- Mendapatkan By Kategori Anonim User
