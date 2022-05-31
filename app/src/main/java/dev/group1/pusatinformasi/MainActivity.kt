@@ -5,12 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -19,9 +15,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dev.group1.pusatinformasi.network.config.NetConfig
 import dev.group1.pusatinformasi.ui.theme.PusatInformasiTheme
-import dev.group1.pusatinformasi.views.LoginView
-import dev.group1.pusatinformasi.views.RegisterView
-import dev.group1.pusatinformasi.views.ViewRoutes
+import dev.group1.pusatinformasi.views.home.ComposeHomeView
 
 // Membuat klien HTTP saat aplikasi dijalankan
 val netService by lazy {
@@ -29,20 +23,20 @@ val netService by lazy {
 }
 
 class MainActivity : ComponentActivity() {
+    private var composeHomeView = ComposeHomeView(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            PusatInformasiTheme {
+            PusatInformasiTheme(false) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    color = MaterialTheme.colors.onPrimary
                 ) {
-                    MainNavigation()
+                    composeHomeView.Homepage()
                 }
             }
         }
     }
-}
 
 // ================================================================================================
 // Navigasi utama
